@@ -15,3 +15,13 @@ CREATE TABLE users (
     name text not null,
     password text not null
 );
+
+DROP TABLE IF EXISTS critique;
+
+CREATE TABLE critique (
+    critique_id integer primary key ASC,
+    nom text,
+    prenom text,
+    crit test not null,
+    note integer not null,
+);

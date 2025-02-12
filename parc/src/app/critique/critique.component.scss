@@ -1,0 +1,18 @@
+.critique-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  button {
+    align-self: flex-end;
+  }
+
+  mat-slide-toggle {
+    margin-bottom: 1rem;
+  }
+}

@@ -4,18 +4,26 @@ import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 import { AttractionInterface } from '../Interface/attraction.interface';
 import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { RouterModule } from '@angular/router';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-accueil',
   standalone: true,
-  imports: [CommonModule, MatCardModule],
+  imports: [
+    CommonModule, 
+    MatCardModule, 
+    MatButtonModule,
+    RouterModule
+  ],
   templateUrl: './accueil.component.html',
   styleUrl: './accueil.component.scss'
 })
 export class AccueilComponent {
-
-  constructor(public attractionService: AttractionService)
-  {}
+  constructor(public attractionService: AttractionService) {}
   
-  public attractions: Observable<AttractionInterface[]> = this.attractionService.getAllAttraction()
+  public attractions: Observable<AttractionInterface[]> = this.attractionService.getAllAttraction().pipe(
+    map(attractions => attractions.filter(attraction => attraction.visible))
+  );
 }
