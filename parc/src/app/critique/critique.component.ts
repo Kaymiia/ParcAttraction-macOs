@@ -41,8 +41,8 @@ export class CritiqueComponent {
       attraction_id: [this.attraction_id],
       nom: [''],
       prenom: [''],
-      texte: ['', Validators.required],
-      note: ['', [Validators.required, Validators.min(0), Validators.max(5)]]
+      crit: ['', Validators.required],
+      note: ['', [Validators.required, Validators.min(0), Validators.max(5)]],
     });
   }
 
@@ -56,6 +56,7 @@ export class CritiqueComponent {
           this.router.navigate(['/accueil']);
         },
         error: (error) => {
+          console.log(error);
           this._snackBar.open('Erreur lors de l\'envoi de la critique', undefined, {
             duration: 2000
           });

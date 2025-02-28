@@ -34,7 +34,7 @@ export const routes: Routes = [
       component: AccueilComponent,
     },
     {
-      path: 'critique/:id',  // Modification ici pour inclure l'id de l'attraction
+      path: 'critique/:id',  
       component: CritiqueComponent,
     },
     { path: '',   redirectTo: '/accueil', pathMatch: 'full' }, 
